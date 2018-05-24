@@ -1,0 +1,21 @@
+def artifactUrl = 'http://nexus.repo'
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') { 
+            steps {
+                script {
+                   artifactUrl = 'test'
+                }
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                echo "Current artifactUrl is '${artifactUrl}'"
+            }
+        }
+    }
+}
